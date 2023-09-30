@@ -83,3 +83,21 @@ function deleteRow(i) {
     localStorage.item = JSON.stringify(dataStorage)
     showData()
 }
+
+// change images every 5 second
+
+let indexstart = 0
+let img = document.querySelectorAll('img')
+console.log(img)
+
+function changeImage() {
+    indexstart++;
+    if (indexstart >= img.length) {
+        indexstart = 0
+    }
+    for (let i = 0; i < img.length; i++) {
+        img[i].classList.remove("active")
+    }
+    img[indexstart].classList.add("active")
+}
+setInterval(changeImage, 5000)
